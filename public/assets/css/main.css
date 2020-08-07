@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin:0px;
+    font-family: 'Raleway', sans-serif;
+    background-color: black;
+}
+
+
+
+
+
+/*Header configuration Start:*/
+.red_header{
+    background-color: darkred;
+    color:white;
+}
+.logo, .headSide {
+    display:inline-block;
+    vertical-align:top;
+}
+
+#logoId_1 {
+    width: 29%;
+}
+
+#headSideId {
+    width: 70%;
+}
+
+.logo >img {
+    width: 50%;
+}
+
+.headSide, #headSideId > span {
+    text-align: right;
+}
+
+/*Header configuration End*/
+
+/*Form Configuration Start*/
+.regForm {
+    background-color: white;
+    padding: 20px;
+}
+
+.regForm > label, input {
+    font-size: xx-large;
+}
+
+.formInput {
+    margin: 12px;
+    padding: 7px;
+}
+
+#submitId, #new_user {
+    margin-bottom: 30px;
+    background-color: green;
+    color: white;
+}
+
+.formForgot {
+    padding-bottom: 15px;
+    margin-bottom: 0px;
+}
+
+/*Form Configuration End*/
+
+
+/*
+.content {
+    max-width:960px;
+    margin:0 auto;
+    margin-top:50px;
+}
+*/
+
+.content-full-width {
+    width: 100%;
+    text-align: center;
+}
+
+/*Start Footer config*/
+
+.footer{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /*background-color: white;*/
+
+}
+
+.black{
+    background-color: black;
+    color: white;
+}
+
+.black.footer span {
+    font-size:large;
+}
+
+/*End Footer config*/
+
+.blocco_welcome{
+    padding: 30px 20%;
+}
+

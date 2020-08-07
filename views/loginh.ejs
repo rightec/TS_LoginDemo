@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+	<head>
+        <title>Benvenuti in EF TANGO</title>
+        <meta charset="UTF-8">
+        <meta name="keyword" content="Tango, scuola, servizi">
+        <meta name="description" content="Accedi ai servizi on line della tua scuola">
+        <meta name="author" content="https://elisavetaefernandotango.it/">
+        <!--<meta http-equiv="refresh" content="30">-->
+        <link rel="stylesheet" href="/assets/css/main.css"/>
+        <link rel="stylesheet" href="/assets/css/mobile.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body class="chi-siamo">
+        <!-- blocco header -->
+        <header>
+            <div class="red_header">
+                <div class="logo" id="logoId_1">
+                    <img src="/assets/img/logo_elifer_bianco-300x300.png" alt="Logo scuola">
+                </div>
+                <aside class="headSide" id="headSideId">
+                    <strong>Scuola di Tango</strong>
+                    <hr class="headInterline" id="headInt_1">
+                    <span class="headText" id="headText_1" >Portale di accesso ai servizi della tua scuola</span>
+                    <br> 
+                    <span class="headText" id="headText_2" >Entra con il tuo account oppure crea il tuo account</span>
+                    <br> 
+                </aside>
+            </div>
+        </header>
+        <!-- blocco content largo 100% -->
+        <div class="content-full-width">
+            <form action="/verify_user" method="POST" target="_blank" class="regForm" id="regFormId_1">
+                <label class="formLabel" id="formLabelId_1" for="uName">User name:</label><br>
+                <input class="formInput" type="text" id="uName" name="uName" placeholder="Immetti il tuo nome utente"><br>
+                <label class="formLabel" id="formLabelId_2" for="password">Password:</label><br>
+                <input class="formInput" type="text" id="password" name="password" placeholder="Immetti la tua password"><br><br>
+                <input class="formInput" id="submitId" type="submit" value="ACCEDI">
+                <p class="formForgot" id="formForgot_id_1" >
+                    <a class="formForgot" id="formForgot_id_2" href="#">Password dimenticata?</a>
+                </p>
+            </form>
+            <form action="/create_newp" method="POST" target="_blank" class="regForm" id="regFormId_2">
+                <label class="formLabel" id="formLabelId_3" for="new_user">Nuovo utente:</label><br>
+                <input class="formInput" id="new_user" type="submit" value="REGISTRATI">
+            </form> 
+        </div>
+        <!-- blocco footer -->
+        <footer class="footer">
+            <div class="black">
+                <p>SKALAWEB Sede legale:e operativa: Via San Geminiano, 9 - 41036 Medolla (MO) Italy <span>Tel. + 39 393 1536xxxx</span> P.IVA 012345678901  <a href="">Privacy</a></p>
+            </div>
+        </footer>
+        <script src="/assets/js/homePage.js"></script>
+    </body>
+</html>

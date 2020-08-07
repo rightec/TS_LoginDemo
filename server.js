@@ -112,9 +112,12 @@ app.use(passport.session());
 
 app.use(methodOverride('_method'));
 
+app.use( express.static( "public" ) );
+
 /*Quando mi viene richiesta la Home Page (root) il server risponde
 Con la renderizzazione della risorsa ejs.
-La risorsa ejs è un file simil HTML 
+La risorsa ejs è un file simil HTML . In questo caso reindirizzo alla
+pagina profilo se l'autenticazione è stata fatta
 */
 app.get(process.env.WEB_HOME_PAGE, checkAuthenticated ,(req, res) => {
     console.log("Session messages",req.session.messages);
@@ -133,7 +136,7 @@ app.get(process.env.WEB_LOGIN_PAGE, checkNotAuthenticated, (req, res) => {
     console.log("Session messages",req.session.messages);
     console.log("Request login and Rendering login");
     req.session.messages = []; //Clear the session messages (evitare la concatenazione)
-    res.render('login.ejs');
+    res.render('loginh.ejs');
 });
 
 /**
