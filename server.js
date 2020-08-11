@@ -78,6 +78,7 @@ initializePassport(
  * 
  */
 const users = [];
+let accessUser = null;
 
 /*Con questo settaggio dico che il motore di visualizzazione
 usa i file di tipo ejs
@@ -156,7 +157,8 @@ app.post(process.env.WEB_LOGIN_PAGE, checkNotAuthenticated, passport.authenticat
  */
 app.get(process.env.WEB_PROFILE_PAGE, checkAuthenticated, (req, res) => {
     console.log("Requested and rendered the profile page");
-    res.render('profile.ejs');
+    res.render('profile.ejs',{profile: req.user.name});
+    console.log("Loggin ", req.user.name );
 });
 
 
@@ -209,6 +211,7 @@ app.delete('/logout', (req,res) => {
 //Creo una middleware function per supportare la navigazione
 function checkAuthenticated(req,res,next){
     if (req.isAuthenticated()){
+        console.log("Display users", users);
         console.log("checkAuthenticated return next");
         return next();
     }
