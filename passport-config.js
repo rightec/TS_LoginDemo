@@ -15,8 +15,11 @@ function initialize(passport,getUserByEmail,getUserById){
     //definisco una funzione authenticateUser
     //Questa funzione accetta come parameteri la email la password ed una funzione choamata done
     const authenticateUser = async (email, password, done) =>{
+        console.log("Email is ", email );
+        console.log("Password is ", password );
         //Questa funziona per prima cosa deve restituirmi uno user
         const user = getUserByEmail(email);
+        console.log ("user is", user);
         //Mi crea lo user a partire dalla email
         if (user == null){
             //Lo user non è stato trovato - vado a restiture la funzione done

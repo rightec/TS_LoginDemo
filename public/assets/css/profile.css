@@ -1,0 +1,28 @@
+.profileButton{
+    margin-left: calc(100% - 65px);
+}
+
+.panelDiv{
+   background-color: white;
+}
+
+
+/*
+@media only screen and (min-width: 361px) and (max-width: 480px){
+
+    .profileButton{
+        margin-left: calc(100% - 70px);
+    }
+
+  }
+
+
+@media only screen and (max-width: 360px) {
+
+    .profileButton{
+        margin-left: 290px;
+    }
+
+  }
+  */
+

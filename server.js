@@ -122,8 +122,6 @@ pagina profilo se l'autenticazione è stata fatta
 app.get(process.env.WEB_HOME_PAGE, checkAuthenticated ,(req, res) => {
     console.log("Session messages",req.session.messages);
     req.session.messages = []; 
-    //console.log("Request HOME and Rendering profile");
-    //res.render('profile.ejs', {name: req.user.name});
     console.log("Request HOME and Redirect profile");
     res.redirect(process.env.WEB_PROFILE_PAGE);
 });
@@ -135,24 +133,16 @@ app.get(process.env.WEB_HOME_PAGE, checkAuthenticated ,(req, res) => {
 
 app.get(process.env.WEB_LOGIN_PAGE, checkNotAuthenticated, (req, res) => {
     console.log("Session messages",req.session.messages);
-    console.log("Request login and Rendering login 1 ");
+    console.log("Request login and Rendering login ");
     req.session.messages = []; //Clear the session messages (evitare la concatenazione)
     res.render('loginh.ejs');
 });
 
-/*
-app.get('/loginh.ejs', checkNotAuthenticated, (req, res) => {
-    console.log("Session messages",req.session.messages);
-    console.log("Request login and Rendering login 2");
-    req.session.messages = []; //Clear the session messages (evitare la concatenazione)
-    res.render('loginh.ejs');
-});
-*/
 
 /**
  * Nella post utilzzo il modulo passport
  */
-app.post('/verify_user', checkNotAuthenticated, passport.authenticate('local',{
+app.post(process.env.WEB_LOGIN_PAGE, checkNotAuthenticated, passport.authenticate('local',{
     successRedirect: process.env.WEB_PROFILE_PAGE,
     failureRedirect: process.env.WEB_LOGIN_PAGE,
     successMessage: "POST SUCCESS",
@@ -166,12 +156,12 @@ app.post('/verify_user', checkNotAuthenticated, passport.authenticate('local',{
  */
 app.get(process.env.WEB_PROFILE_PAGE, checkAuthenticated, (req, res) => {
     console.log("Requested and rendered the profile page");
-    res.render('profile.ejs');
+    res.render('profileh.ejs');
 });
 
 
 
-app.get('/registerh.ejs', checkNotAuthenticated, (req, res) => {
+app.get(process.env.WEB_REG_PAGE, checkNotAuthenticated, (req, res) => {
     console.log("Requested and rendered the register page");
     res.render('registerh.ejs');
 });
@@ -182,7 +172,7 @@ app.get('/registerh.ejs', checkNotAuthenticated, (req, res) => {
  * costrutto try catch
  */
 
-app.post('/registerId', checkNotAuthenticated, async (req, res) => {
+app.post(process.env.WEB_REG_PAGE, checkNotAuthenticated, async (req, res) => {
     try {
         //definisco una variabile chiave di hash
         //per la password
@@ -191,14 +181,19 @@ app.post('/registerId', checkNotAuthenticated, async (req, res) => {
         users.push({
             id: Date.now().toString(),
             name: req.body.uNameReg,
-            email: req.body.emaiReg,
+            email: req.body.eMailReg,
             password: hasedPassword
         });
+        let userLen = users.length;
+        console.log("users are" ,userLen);
+        if (userLen > 0){
+            console.log(users[userLen-1].id, users[userLen-1].name, users[userLen-1].email, users[userLen-1].password );
+        }
         console.log("POST register done, REDIRECT to Login page");
-        res.redirect('/loginh');
+        res.redirect(process.env.WEB_LOGIN_PAGE);
     } catch {
         console.log("Catch error in POST reg page, REDIRECT to REG page");
-        res.redirect('/registerh.ejs');
+        res.redirect(process.env.WEB_REG_PAGE);
     }
 });
 

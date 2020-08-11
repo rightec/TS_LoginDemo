@@ -64,6 +64,11 @@ body {
     font-size: large;
 }
 
+#formLabelId_7 {
+    background-color: yellow;
+    font-weight: bold;
+}
+
 .formForgot {
     padding-bottom: 15px;
     margin-bottom: 0px;

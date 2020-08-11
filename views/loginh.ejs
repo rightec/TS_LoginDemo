@@ -33,11 +33,14 @@
 
         <!-- blocco content largo 100% - LOGIN -->
         <div class="content-full-width" id="login_form">
-            <form action="/verify_user" method="POST" target="_blank" class="regForm" id="regFormId_1">
+            <form action="/loginh" method="POST" class="regForm" id="regFormId_1">
                 <label class="formLabel" id="formLabelId_1" for="email">E-mail:</label><br>
                 <input class="formInput" type="email" id="email" name="email" placeholder="Immetti il tuo nome utente"><br>
                 <label class="formLabel" id="formLabelId_2" for="password">Password:</label><br>
                 <input class="formInput" type="password" id="password" name="password" placeholder="Immetti la tua password"><br><br>
+                <% if (messages.error){ %>
+                    <label class="formLabel" id="formLabelId_7" ><%= messages.error %></label><br>            
+                <% } %>         
                 <input class="formInput" id="submitId" type="submit" value="ACCEDI">
                 <p class="formForgot" id="formForgot_id_1" >
                     <a class="formForgot" id="formForgot_id_2" href="#">Password dimenticata?</a>
@@ -45,7 +48,7 @@
             </form>
             <div class="regForm" id="regFormId_2">
                 <p class="formForgot" id="formForgot_id_5" >
-                    <a class="formForgot" id="formForgot_id_6" href=<%= '/registerh.ejs' %>>REGISTRATI</a>
+                    <a class="formForgot" id="formForgot_id_6" href=<%= '/registerh' %>>REGISTRATI</a>
                 </p>
                 <!--
                 <label class="formLabel" id="formLabelId_3">Nuovo utente:</label><br>
