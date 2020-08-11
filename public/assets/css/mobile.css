@@ -6,33 +6,57 @@
 
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (min-width: 361px) and (max-width: 480px){
+
+    .headSide, #headSideId > span {
+        font-size:smaller;
+    }
+
+    #headSideId {
+        width: 69%;
+    }
+    
+    .regForm {
+        padding: 20px 0px;
+    }
+    
+    .regForm > label, input {
+        font-size: x-large;
+    }
+
+    .footer {
+        text-align: center;
+        font-size: smaller;
+        padding-top: 0px;
+    }
+
+  }
+
+
+@media only screen and (max-width: 360px) {
 
     .headSide, #headSideId > span {
         font-size: xx-small;
     }
+
+    #headSideId {
+        width: 69%;
+    }
     
+    .regForm {
+        padding: 20px 0px;
+    }
     
-    /*
-    .logo img {
-        top:10px;
+    .regForm > label, input {
+        font-size: large;
     }
 
-    
-    .blocco_news {
-        display:block;
-        width:100%;
-    }
-    
-    
     .footer {
-        padding:10px;
-        font-size:12px;
+        text-align: center;
+        font-size: x-small;
+        width: 95%;
+        padding-top: 0px;
     }
-    
-    .black.footer span {
-        font-size:12px;
-    }
-    */
+
   }
 

@@ -34,10 +34,10 @@
         <!-- blocco content largo 100% - LOGIN -->
         <div class="content-full-width" id="login_form">
             <form action="/verify_user" method="POST" target="_blank" class="regForm" id="regFormId_1">
-                <label class="formLabel" id="formLabelId_1" for="email">E-mail:</label><br>
-                <input class="formInput" type="email" id="email" name="email" placeholder="Immetti il tuo nome utente"><br>
+                <label class="formLabel" id="formLabelId_1" for="uName">User name:</label><br>
+                <input class="formInput" type="text" id="uName" name="uName" placeholder="Immetti il tuo nome utente"><br>
                 <label class="formLabel" id="formLabelId_2" for="password">Password:</label><br>
-                <input class="formInput" type="password" id="password" name="password" placeholder="Immetti la tua password"><br><br>
+                <input class="formInput" type="text" id="password" name="password" placeholder="Immetti la tua password"><br><br>
                 <input class="formInput" id="submitId" type="submit" value="ACCEDI">
                 <p class="formForgot" id="formForgot_id_1" >
                     <a class="formForgot" id="formForgot_id_2" href="#">Password dimenticata?</a>
@@ -45,7 +45,7 @@
             </form>
             <div class="regForm" id="regFormId_2">
                 <p class="formForgot" id="formForgot_id_5" >
-                    <a class="formForgot" id="formForgot_id_6" href=<%= '/registerh.ejs' %>>REGISTRATI</a>
+                    <a class="formForgot" id="formForgot_id_6" href="register.ejs">REGISTRATI</a>
                 </p>
                 <!--
                 <label class="formLabel" id="formLabelId_3">Nuovo utente:</label><br>
@@ -56,7 +56,7 @@
 
         <!-- blocco content largo 100% - REGISTER -->
         <div class="content-full-width" id="register_form">
-            <form action="/register" method="POST" target="_blank" class="regForm" id="regFormId_3">
+            <form action="/registerId" method="POST" target="_blank" class="regForm" id="regFormId_3">
                 <label class="formLabel" id="formLabelId_4" for="uNameReg">User name:</label><br>
                 <input class="formInput" type="text" id="uNameReg" name="uNameReg" placeholder="Immetti il tuo nome utente" required><br>
                 <label class="formLabel" id="formLabelId_5" for="eMailReg">E-mail:</label><br>
@@ -66,7 +66,7 @@
                 <input class="formInput" id="submitIdReg" type="submit" value="REGISTRATI">
                 <p class="formForgot" id="formForgot_id_3" ></p>
                 <!-- <p class="formForgot" id="formForgot_id_3" onclick="backToLogin()"> -->
-                    <a class="formForgot" id="formForgot_id_4" href="login.ejs">Torna al login</a>
+                    <a class="formForgot" id="formForgot_id_4" href=<%= '/loginh.ejs' %>>>Torna al login</a>
                 </p>
             </form>
         </div>
@@ -77,6 +77,6 @@
                 <p>SKALAWEB Sede legale:e operativa: Via San Geminiano, 9 - 41036 Medolla (MO) Italy <span>Tel. + 39 393 1536xxxx</span> P.IVA 012345678901  <a href="">Privacy</a></p>
             </div>
         </footer>
-        <script src="/assets/js/loginPage.js"></script>
+        <script src="/assets/js/registerPage.js"></script>
     </body>
 </html>

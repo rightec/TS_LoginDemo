@@ -57,10 +57,11 @@ body {
     padding: 7px;
 }
 
-#submitId, #new_user {
+#submitId, #new_user,#submitIdReg {
     margin-bottom: 30px;
     background-color: green;
     color: white;
+    font-size: large;
 }
 
 .formForgot {
@@ -101,6 +102,10 @@ body {
 
 .black.footer span {
     font-size:large;
+}
+
+#register_form {
+    display: none;
 }
 
 /*End Footer config*/

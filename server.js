@@ -132,17 +132,27 @@ app.get(process.env.WEB_HOME_PAGE, checkAuthenticated ,(req, res) => {
  * Equivalentemente renderizzo le altre risorse web
  * login e register
  */
+
 app.get(process.env.WEB_LOGIN_PAGE, checkNotAuthenticated, (req, res) => {
     console.log("Session messages",req.session.messages);
-    console.log("Request login and Rendering login");
+    console.log("Request login and Rendering login 1 ");
     req.session.messages = []; //Clear the session messages (evitare la concatenazione)
     res.render('loginh.ejs');
 });
 
+/*
+app.get('/loginh.ejs', checkNotAuthenticated, (req, res) => {
+    console.log("Session messages",req.session.messages);
+    console.log("Request login and Rendering login 2");
+    req.session.messages = []; //Clear the session messages (evitare la concatenazione)
+    res.render('loginh.ejs');
+});
+*/
+
 /**
  * Nella post utilzzo il modulo passport
  */
-app.post(process.env.WEB_LOGIN_PAGE, checkNotAuthenticated, passport.authenticate('local',{
+app.post('/verify_user', checkNotAuthenticated, passport.authenticate('local',{
     successRedirect: process.env.WEB_PROFILE_PAGE,
     failureRedirect: process.env.WEB_LOGIN_PAGE,
     successMessage: "POST SUCCESS",
@@ -161,9 +171,9 @@ app.get(process.env.WEB_PROFILE_PAGE, checkAuthenticated, (req, res) => {
 
 
 
-app.get(process.env.WEB_REG_PAGE, checkNotAuthenticated, (req, res) => {
+app.get('/registerh.ejs', checkNotAuthenticated, (req, res) => {
     console.log("Requested and rendered the register page");
-    res.render('register.ejs');
+    res.render('registerh.ejs');
 });
 
 /**
@@ -172,23 +182,23 @@ app.get(process.env.WEB_REG_PAGE, checkNotAuthenticated, (req, res) => {
  * costrutto try catch
  */
 
-app.post(process.env.WEB_REG_PAGE, checkNotAuthenticated, async (req, res) => {
+app.post('/registerId', checkNotAuthenticated, async (req, res) => {
     try {
         //definisco una variabile chiave di hash
         //per la password
-        const hasedPassword = await bcrypt.hash(req.body.password,10);
+        const hasedPassword = await bcrypt.hash(req.body.passwordReg,10);
         //Riempio quindi l'array
         users.push({
             id: Date.now().toString(),
-            name: req.body.name,
-            email: req.body.email,
+            name: req.body.uNameReg,
+            email: req.body.emaiReg,
             password: hasedPassword
         });
         console.log("POST register done, REDIRECT to Login page");
-        res.redirect(process.env.WEB_LOGIN_PAGE);
+        res.redirect('/loginh');
     } catch {
         console.log("Catch error in POST reg page, REDIRECT to REG page");
-        res.redirect(process.env.WEB_REG_PAGE);
+        res.redirect('/registerh.ejs');
     }
 });
 
