@@ -135,7 +135,7 @@ app.get(process.env.WEB_LOGIN_PAGE, checkNotAuthenticated, (req, res) => {
     console.log("Session messages",req.session.messages);
     console.log("Request login and Rendering login ");
     req.session.messages = []; //Clear the session messages (evitare la concatenazione)
-    res.render('loginh.ejs');
+    res.render('login.ejs');
 });
 
 
@@ -156,14 +156,14 @@ app.post(process.env.WEB_LOGIN_PAGE, checkNotAuthenticated, passport.authenticat
  */
 app.get(process.env.WEB_PROFILE_PAGE, checkAuthenticated, (req, res) => {
     console.log("Requested and rendered the profile page");
-    res.render('profileh.ejs');
+    res.render('profile.ejs');
 });
 
 
 
 app.get(process.env.WEB_REG_PAGE, checkNotAuthenticated, (req, res) => {
     console.log("Requested and rendered the register page");
-    res.render('registerh.ejs');
+    res.render('register.ejs');
 });
 
 /**
